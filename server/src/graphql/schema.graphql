@@ -1,8 +1,39 @@
 type Book {
+   id:ID!
    name: String
    genre: String
+   authorid: Int
+   author: [Author]
+}
+
+type Author {
+   id:ID!
+   name: String
+   age: String
+   books: [Book]
+}
+
+type Count{
+   data: Int
+   qty: Int
 }
 
 type Query {
+   books: [Book]
+   countBookAuthor(data: Int!): [Count]
+   book(id: Int, name: String, authorid: Int): [Book]
+   authors: [Author]
+   author(id:ID, name: String): [Author]
+
+}
+
+type Mutation {
+   addBook(name: String!, genre: String!, authorid: String!): [Book]
+   deleteBook(id: Int, name: String): DeleteResponse
+}
+
+type DeleteResponse {
+   success: Boolean!
+   message: String
    books: [Book]
 }
