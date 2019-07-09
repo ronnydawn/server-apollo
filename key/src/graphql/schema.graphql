@@ -1,0 +1,29 @@
+type Author {
+   id: ID!
+   name: String
+   title: String
+   idUser: Int
+   user: [User]
+}
+
+type User {
+   id: ID!
+   email: String
+   password: String
+   author: Author
+}
+
+type Query {
+   authors: [Author]
+   author(id: Int, name: String, idUser: Int,limit: Int, offset : Int): [Author]
+
+   users(limit: Int, offset : Int,excel: Boolean): [User]
+   user(id: ID!): [User]
+}
+type Mutation {
+  addUser(email: String!, password: String!): User!
+
+  addAuthor(name: String!, title: String!): Author!
+
+  logIn(email: String!, password: String!): String!
+}
