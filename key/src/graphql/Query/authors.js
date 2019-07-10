@@ -1,16 +1,16 @@
 const knex = require('../../db/knex')
 
 const authors = async (_, args, { user }) => {
-    if (!user) {
-        throw new Error("You are not logged in to access this information ");
-    }
+    // if (!user) {
+    //     throw new Error("You are not logged in to access this information ");
+    // }
     return await knex('authors')
 }
 
 const author = async (parent, args, { user }) => {
-    if (!user) {
-        throw new Error("You are not logged in to access this information ");
-    }
+    // if (!user) {
+    //     throw new Error("You are not logged in to access this information ");
+    // }
     var limit = null, offset = null;
     if (args.limit) {
         limit = args.limit;

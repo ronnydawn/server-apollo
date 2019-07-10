@@ -5,6 +5,7 @@ const { importSchema } = require('graphql-import')
 const { resolvers } = require('./src/graphql')
 const typeDefs = importSchema('./src/graphql/schema.graphql')
 const SECRET = "createaverystrongsec34!retthatalsoincludes2423412wdsa324e34e";
+const cors = require('cors')
 
 const server = new ApolloServer({
     typeDefs,
@@ -25,12 +26,12 @@ const server = new ApolloServer({
     }
 })
 const app = express()
+app.use(cors());
 
 server.applyMiddleware({ app })
 app.get('/test', (req, res) => {
     const Excel = require('exceljs');
 
-    var workbook = new Excel.Workbook();
     var workbook = new Excel.Workbook();
     var worksheet = workbook.addWorksheet('Discography');
 

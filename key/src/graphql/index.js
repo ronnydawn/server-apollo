@@ -1,7 +1,7 @@
 const Mutation = require('./Mutation')
 const Query = require('./Query')
-const User = require('./resolvers/User')
-const Author = require('./resolvers/Author')
+const User = require('./Resolvers/User')
+const Author = require('./Resolvers/Author')
 
 const resolvers = {
   Mutation,

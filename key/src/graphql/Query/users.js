@@ -2,9 +2,9 @@ const knex = require('../../db/knex')
 
 const users = async (_, args, { user }) => {
     var limit = null, offset = null, excel = false;
-    if (!user) {
-        throw new Error("You are not logged in to access this information ");
-    }
+    // if (!user) {
+    //     throw new Error("You are not logged in to access this information ");
+    // }
     if (args.excel == true) {
         excel = args.excel;
         delete args.excel;
@@ -45,9 +45,9 @@ const users = async (_, args, { user }) => {
 }
 
 const user = async (parent, args, { users }) => {
-    if (!user) {
-        throw new Error("You are not logged in to access this information ");
-    }
+    // if (!user) {
+    //     throw new Error("You are not logged in to access this information ");
+    // }
     var limit = null, offset = null;
     if (args.limit) {
         limit = args.limit;
