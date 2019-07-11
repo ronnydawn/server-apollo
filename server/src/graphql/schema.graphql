@@ -13,6 +13,21 @@ type Author {
    books: [Book]
 }
 
+type User {
+   id: ID!
+   email: String
+   password: String
+   author: Author
+   token: String
+}
+
+type Token{
+   token: String!
+   email: String!
+   iat: String!
+   exp: String!
+}
+
 type Count{
    data: Int
    qty: Int
@@ -24,12 +39,15 @@ type Query {
    book(id: Int, name: String, authorid: Int): [Book]
    authors: [Author]
    author(id:ID, name: String): [Author]
-
+   users(limit: Int, offset : Int,excel: Boolean): [User]
+   user(id: ID!): [User]
+   logIn(email: String!, password: String!): [User]
 }
 
 type Mutation {
    addBook(name: String!, genre: String!, authorid: String!): [Book]
    deleteBook(id: Int, name: String): DeleteResponse
+   logIn(email: String!, password: String!): Token
 }
 
 type DeleteResponse {

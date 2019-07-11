@@ -3,6 +3,7 @@ const Mutation = require('./Mutation')
 const Book = require('./Resolvers/books')
 const Author = require('./Resolvers/authors')
 const Count = require('./Resolvers/count')
+const User = require('./Resolvers/users')
 const DeleteResponse = require('./Resolvers/delete')
 
 const resolvers = {
@@ -11,6 +12,7 @@ const resolvers = {
   Book,
   Author,
   Count,
+  User,
   DeleteResponse
 }
 

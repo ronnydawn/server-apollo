@@ -11,11 +11,18 @@ const addBook = async (_, args) => {
    const updatedAt = knex.fn.now()
    const colBook = {...args, createdAt, updatedAt}
    // console.log(knex('books').insert(colBook))
-   await knex('books').insert(colBook)
-   return knex('books')
+   await await knex('books').insert(colBook)
+   console.log(await knex('books')
       .select(
-         'id as bookid',
-         'name as bookname',
+         'id',
+         'name',
+         'genre',
+         'authorid')
+      .where({name:args.name}))
+   return await knex('books')
+      .select(
+         'id',
+         'name',
          'genre',
          'authorid')
       .where({name:args.name})
